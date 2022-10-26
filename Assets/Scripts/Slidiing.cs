@@ -29,6 +29,7 @@ public class Slidiing : MonoBehaviour
     {
         bool canSlide = !animator.GetBool("IsFly");
         if (canSlide == false) return;
+
         if (isSliding)
         {
             EndSlide();
@@ -43,6 +44,7 @@ public class Slidiing : MonoBehaviour
         bool isKeyDown = Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.DownArrow);
         if (isKeyDown)
         {
+            Debug.Log("Start Slide");
             boxCollider2D.offset = new Vector2(startOffset.x, offsetY);
             boxCollider2D.size = new Vector2(startSize.x, sizeY);
             isSliding = true;
@@ -54,6 +56,7 @@ public class Slidiing : MonoBehaviour
         bool isKeyUp = Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.DownArrow);
         if (isKeyUp)
         {
+            Debug.Log("End Slide");
             boxCollider2D.offset = startOffset; 
             boxCollider2D.size = startSize;
 
